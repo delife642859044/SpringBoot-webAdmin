@@ -5,6 +5,9 @@
 
 <!--namespace = 绑定一个对应的 Dao/Mapper 接口-->
 <mapper namespace="com.example.mapper.UserDao">
+    <insert id="addUser" parameterType="User">
+        insert into users(username,password,statusid) values (#{username},#{password},#{status.id})
+    </insert>
 
     <select id="findAll" resultType="User">
         select * from users

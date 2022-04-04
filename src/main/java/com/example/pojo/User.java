@@ -3,8 +3,17 @@ package com.example.pojo;
 //用户类
 public class User {
     private Integer userid;     //用户ID
+    private String username;    //用户
     private String password;    //用户密码
     private Status status;   //用户状态
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
     public Integer getUserid() {
         return userid;
@@ -22,11 +31,11 @@ public class User {
         this.password = password;
     }
 
-    public Status getStatusid() {
+    public Status getStatus() {
         return status;
     }
 
-    public void setStatusid(Status status) {
+    public void setStatus(Status status) {
         this.status = status;
     }
 }

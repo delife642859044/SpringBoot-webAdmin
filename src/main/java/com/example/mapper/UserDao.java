@@ -12,4 +12,7 @@ import java.util.List;
 public interface UserDao {
 //    获取所有数据
     public List<User> findAll();
+
+    /*添加User*/
+    public void addUser(User user);
 }
