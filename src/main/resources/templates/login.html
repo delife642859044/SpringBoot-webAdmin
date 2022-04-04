@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
   <head>
     <title>Bootstrap Admin Theme v3</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
-    <link href="../../../../../IDM/压缩文件/Bootstrap-Admin-Theme-3-master/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
     <!-- styles -->
-    <link href="../../../../../IDM/压缩文件/Bootstrap-Admin-Theme-3-master/css/styles.css" rel="stylesheet">
+    <link th:href="@{/css/styles.css}" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -39,7 +39,7 @@
 			                <div class="social">
 	                            <a class="face_login" href="#">
 	                                <span class="face_icon">
-	                                    <img src="../../../../../IDM/压缩文件/Bootstrap-Admin-Theme-3-master/images/facebook.png" alt="fb">
+	                                    <img th:src="@{/images/facebook.png}" alt="fb">
 	                                </span>
 	                                <span class="text">Sign in with Facebook</span>
 	                            </a>
@@ -59,7 +59,7 @@
 
 			        <div class="already">
 			            <p>Don't have an account yet?</p>
-			            <a href="../../../../../IDM/压缩文件/Bootstrap-Admin-Theme-3-master/signup.html">Sign Up</a>
+			            <a th:href="@{/signup.html}">Sign Up</a>
 			        </div>
 			    </div>
 			</div>
