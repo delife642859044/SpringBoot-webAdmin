@@ -19,73 +19,97 @@
     <![endif]-->
   </head>
   <body>
+  <!--顶部栏-->
   <div th:replace="~{commons/commons.html::topBar}"></div>
 
     <div class="page-content">
+
     	<div class="row">
-			<div class="col-md-2">
-		  		<div th:replace="~{commons/commons.html::sideBar}"></div>
-			</div>
+			<!--侧边栏-->
+			<div th:replace="~{commons/commons.html::sideBar(active='tables')}"></div>
 			<!--数据展示-->
-		  <div class="col-md-10">
+			<div class="col-md-10">
+				<div class="content-box-large">
+					<div class="panel-heading">
+						<div class="panel-title">Management</div>
+						<button class="btn btn-info btn-xs" th:src="@{/index}" onclick="display()"><i class="glyphicon glyphicon-pencil"></i>AddUser</button>
+					</div>
+					<div class="panel-body">
+						<div class="table-responsive">
+							<table class="table">
+								<thead>
+								<tr>
+									<th>userID</th>
+									<th>UserName</th>
+									<th>Password</th>
+									<th>Status</th>
+									<th>action</th>
+								</tr>
+								</thead>
+								<tbody>
+								<tr th:each="user:${UserList}">
+									<td th:text="${user.getUserid()}"></td>
+									<td th:text="${user.getUsername()}"></td>
+									<td th:text="${user.getPassword()}"></td>
+									<td th:text="${user.getStatus()}"></td>
+									<td>
+										<button class="btn btn-primary btn-xs"><i class="glyphicon glyphicon-pencil"></i> Edit</button>
+										<button class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-remove"></i> Delete</button>
+									</td>
+								</tr>
 
-  			<div class="content-box-large">
-  				<div class="panel-heading">
-					<div class="panel-title">Responsive Tables</div>
+
+								<tr id="UserAdd" hidden="none">
+									<form action="/addUser" method="post">
+									<th>
+										请输入
+									</th>
+									<th>
+										<input type="text" class="form-control"	name="username">
+									</th>
+									<th>
+										<input type="text" class="form-control" name="password">
+									</th>
+									<th>
+										<input type="text" class="form-control">
+									</th>
+									<th>
+										<input type="submit" class="btn btn-primary btn-sm">Success</input>
+
+									</th>
+									</form>
+								</tr>
+
+
+								</tbody>
+							</table>
+						</div>
+					</div>
 				</div>
-  				<div class="panel-body">
-  					<div class="table-responsive">
-  						<table class="table">
-			              <thead>
-			                <tr>
-			                  <th>userID</th>
-			                  <th>UserName</th>
-			                  <th>Password</th>
-			                  <th>Status</th>
-			                </tr>
-			              </thead>
-			              <tbody>
-			                <tr th:each="user:${UserList}">
-			                  <td th:text="${user.getUserid()}"></td>
-			                  <td th:text="${user.getUsername()}"></td>
-			                  <td th:text="${user.getPassword()}"></td>
-<!--			                  <td th:text="${user.getStatus().getStatus()}"></td>-->
-			                </tr>
 
-			              </tbody>
-			            </table>
-  					</div>
-  				</div>
-  			</div>
+			</div>
 
-		  </div>
 		</div>
     </div>
 
-    <footer>
-         <div class="container">
 
-            <div class="copy text-center">
-               Copyright 2014 <a href='#'>Website</a>
-            </div>
-
-         </div>
-      </footer>
-
-      <link href="vendors/datatables/dataTables.bootstrap.css" rel="stylesheet" media="screen">
+      <link th:href="@{vendors/datatables/dataTables.bootstrap.css}" rel="stylesheet" media="screen">
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://code.jquery.com/jquery.js"></script>
     <!-- jQuery UI -->
     <script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+    <script th:src="@{/vendors/datatables/js/jquery.dataTables.min.js}"></script>
+    <script th:src="@{/vendors/datatables/dataTables.bootstrap.js}"></script>
+    <script th:src="@{/js/custom.js}"></script>
+    <script th:src="@{/js/tables.js}"></script>
+  	<script type="text/javascript">
+		function display(){
+			$('#UserAdd').toggle();
+		}
+	</script>
 
-    <script src="vendors/datatables/js/jquery.dataTables.min.js"></script>
-
-    <script src="vendors/datatables/dataTables.bootstrap.js"></script>
-
-    <script src="js/custom.js"></script>
-    <script src="js/tables.js"></script>
   </body>
 </html>

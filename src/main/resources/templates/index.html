@@ -19,7 +19,11 @@
 <!--  网页顶部-->
   	<div th:replace="~{commons/commons.html::topBar}"></div>
 <!--网页侧边-->
-  	<div th:replace="~{commons/commons.html::sideBar}"></div>
+    <div class="page-content" >
+        <div class="row">
+            <div th:replace="~{commons/commons.html::sideBar(active='index')}"></div>
+        </div>
+    </div>
 
 
 

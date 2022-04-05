@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.Collection;
 import java.util.List;
@@ -17,20 +19,15 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @GetMapping("/addUser")
-    public String addUser(){
-        User user = new User();
-        user.setUsername("admin");
-        user.setPassword("123456");
-        Status status = new Status();
-        status.setId(0);
-        user.setStatus(status);
+    @PostMapping("/addUser")
+    public String addUser(User user){
+
         userService.addUser(user);
 
-        return "index";
+        return "redirect:/Management";
     }
 
-    @GetMapping("/findAll")
+    @GetMapping("/Management")
     public String findAll(Model model){
         Collection<User> userList = userService.findAll();
         model.addAttribute("UserList",userList);

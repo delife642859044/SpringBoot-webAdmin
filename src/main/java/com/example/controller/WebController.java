@@ -26,12 +26,11 @@ public class WebController {
         user.setUsername(username);
         user.setPassword(password);
 
-
         User userLogin = userService.findUser(user);
         if (userLogin != null){
             session.setAttribute("loginUser",username);
             model.addAttribute("myUser",userLogin);
-            return "index";
+            return "redirect:/main.html";
         }else{
             model.addAttribute("msg", "登录失败,请检查用户名或密码!");
             return "login";
@@ -45,4 +44,5 @@ public class WebController {
         session.removeAttribute("User");
         return "login";
     }
+
 }

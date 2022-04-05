@@ -11,6 +11,8 @@ public class MyMVCConfig implements WebMvcConfigurer {
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/").setViewName("/index");
+        registry.addViewController("/index").setViewName("/index");
+        registry.addViewController("/main.html").setViewName("/index");
         registry.addViewController("/toLogin").setViewName("login");
         registry.addViewController("/login").setViewName("login");
     }
@@ -20,6 +22,6 @@ public class MyMVCConfig implements WebMvcConfigurer {
         /*注册拦截器*/
         registry.addInterceptor(new LoginHandlerInterceptor())
                 .addPathPatterns("/**")
-                .excludePathPatterns("/static/**", "/login", "/userLogin");
+                .excludePathPatterns("/static/**", "/login", "/userLogin","/index.html");
     }
 }
