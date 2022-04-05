@@ -5,8 +5,11 @@ import com.example.pojo.User;
 import com.example.server.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+
+import java.util.Collection;
+import java.util.List;
 
 //前端User相关控制器
 @Controller
@@ -25,5 +28,12 @@ public class UserController {
         userService.addUser(user);
 
         return "index";
+    }
+
+    @GetMapping("/findAll")
+    public String findAll(Model model){
+        Collection<User> userList = userService.findAll();
+        model.addAttribute("UserList",userList);
+        return "user/tables";
     }
 }

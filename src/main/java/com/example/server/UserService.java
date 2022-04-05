@@ -2,6 +2,8 @@ package com.example.server;
 
 import com.example.pojo.User;
 
+import java.util.List;
+
 //User服务接口
 public interface UserService {
     /*添加User*/
@@ -9,4 +11,7 @@ public interface UserService {
 
     /*查找用户*/
     User findUser(User user);
+
+    /*获取所有User数据*/
+    List<User> findAll();
 }

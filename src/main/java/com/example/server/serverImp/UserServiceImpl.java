@@ -6,6 +6,8 @@ import com.example.server.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 //实现UserService
 @Service
 public class UserServiceImpl implements UserService {
@@ -25,5 +27,11 @@ public class UserServiceImpl implements UserService {
         User findUser = userDao.findUser(user);
 
         return findUser;
+    }
+    /*获取所有User实现*/
+    @Override
+    public List<User> findAll() {
+
+        return userDao.findAll();
     }
 }
