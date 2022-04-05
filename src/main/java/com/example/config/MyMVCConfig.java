@@ -14,11 +14,12 @@ public class MyMVCConfig implements WebMvcConfigurer {
         registry.addViewController("/toLogin").setViewName("login");
         registry.addViewController("/login").setViewName("login");
     }
-
+    /*拦截器配置*/
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
+        /*注册拦截器*/
         registry.addInterceptor(new LoginHandlerInterceptor())
                 .addPathPatterns("/**")
-                .excludePathPatterns("/static/*", "/login");
+                .excludePathPatterns("/static/**", "/login", "/userLogin");
     }
 }
