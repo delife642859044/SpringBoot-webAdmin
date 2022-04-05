@@ -13,8 +13,17 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserDao userDao;
 
+    /*添加User用户*/
     @Override
     public void addUser(User user) {
         userDao.addUser(user);
+    }
+
+    /*判断User用户是否匹配*/
+    @Override
+    public User findUser(User user) {
+        User findUser = userDao.findUser(user);
+
+        return findUser;
     }
 }

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
-//前端控制器
+//前端User相关控制器
 @Controller
 public class UserController {
     @Autowired

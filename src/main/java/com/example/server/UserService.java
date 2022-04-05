@@ -6,4 +6,7 @@ import com.example.pojo.User;
 public interface UserService {
     /*添加User*/
     void addUser(User user);
+
+    /*查找用户*/
+    User findUser(User user);
 }

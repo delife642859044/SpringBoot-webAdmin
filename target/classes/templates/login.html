@@ -22,7 +22,7 @@
 	           <div class="col-md-12">
 	              <!-- Logo -->
 	              <div class="logo">
-	                 <h1><a href="index.html">Bootstrap Admin Theme</a></h1>
+	                 <h1><a th:href="@{/index.html}">Bootstrap Admin Theme</a></h1>
 	              </div>
 	           </div>
 	        </div>
@@ -36,11 +36,12 @@
 			        <div class="box">
 			            <div class="content-wrap">
 			                <h6>Sign In</h6>
-			                <form>
-								<input class="form-control" type="text" placeholder="E-mail address">
-								<input class="form-control" type="password" placeholder="Password">
+							<p class="text-warning" th:text="${msg}"> </p>
+			                <form action="/userLogin" method="post">
+								<input class="form-control" type="text" placeholder="username" name="username">
+								<input class="form-control" type="password" placeholder="Password" name="password">
 								<div class="action">
-									<a class="btn btn-primary signup" href="@{/login}">Login</a>
+									<input class="btn btn-primary signup" type="submit" name="Login"/>
 								</div>
 							</form>
 			            </div>

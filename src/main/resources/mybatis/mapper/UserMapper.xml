@@ -13,5 +13,9 @@
         select * from users
     </select>
 
+    <select id="findUser" resultType="User" parameterType="User">
+        select * from users where username=#{username} and password=#{password}
+    </select>
+
 
 </mapper>

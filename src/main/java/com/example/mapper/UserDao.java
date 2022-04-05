@@ -15,4 +15,7 @@ public interface UserDao {
 
     /*添加User*/
     public void addUser(User user);
+
+    /*查找User*/
+    public User findUser(User user);
 }
