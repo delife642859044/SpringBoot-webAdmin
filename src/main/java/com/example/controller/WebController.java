@@ -18,7 +18,7 @@ public class WebController {
     @Autowired
     private UserService userService;
 
-
+    /*登录*/
     @PostMapping("/userLogin")
     public String login(String username, String password, HttpSession session, Model model){
         System.out.println(username + password);
@@ -29,7 +29,7 @@ public class WebController {
 
         User userLogin = userService.findUser(user);
         if (userLogin != null){
-            session.setAttribute("User",userLogin);
+            session.setAttribute("loginUser",username);
             model.addAttribute("myUser",userLogin);
             return "index";
         }else{
@@ -37,13 +37,12 @@ public class WebController {
             return "login";
         }
 
-//        return "redirect:/index";
     }
 
-    @GetMapping("/index")
-    public String index(HttpSession session){
-
-        return session.getAttribute("User") != null ? "index" : "redirect:/login";
+    /*注销用户*/
+    @GetMapping("/logout")
+    public String logout(HttpSession session){
+        session.removeAttribute("User");
+        return "login";
     }
-
 }
