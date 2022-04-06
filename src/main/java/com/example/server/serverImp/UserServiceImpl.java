@@ -31,7 +31,11 @@ public class UserServiceImpl implements UserService {
     /*获取所有User实现*/
     @Override
     public List<User> findAll() {
-
         return userDao.findAll();
+    }
+
+    @Override
+    public void deleteUser(Integer userId) {
+        userDao.deleteUser(userId);
     }
 }

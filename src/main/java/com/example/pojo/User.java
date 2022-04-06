@@ -5,7 +5,7 @@ public class User {
     private Integer userid;     //用户ID
     private String username;    //用户
     private String password;    //用户密码
-    private Status status;   //用户状态
+    private Integer statusid;   //用户状态
 
     public String getUsername() {
         return username;
@@ -31,12 +31,12 @@ public class User {
         this.password = password;
     }
 
-    public Status getStatus() {
-        return status;
+    public Integer getStatus() {
+        return statusid;
     }
 
-    public void setStatus(Status status) {
-        this.status = status;
+    public void setStatus(Integer status) {
+        this.statusid = status;
     }
 
     @Override
@@ -45,7 +45,7 @@ public class User {
                 "userid=" + userid +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
-                ", status=" + status +
+                ", status=" + statusid +
                 '}';
     }
 }

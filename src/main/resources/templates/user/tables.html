@@ -47,39 +47,41 @@
 								</tr>
 								</thead>
 								<tbody>
-								<tr th:each="user:${UserList}">
-									<td th:text="${user.getUserid()}"></td>
-									<td th:text="${user.getUsername()}"></td>
-									<td th:text="${user.getPassword()}"></td>
-									<td th:text="${user.getStatus()}"></td>
-									<td>
-										<button class="btn btn-primary btn-xs"><i class="glyphicon glyphicon-pencil"></i> Edit</button>
-										<button class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-remove"></i> Delete</button>
-									</td>
-								</tr>
-
-
+								<!----------------------------------------------------------->
 								<tr id="UserAdd" hidden="none">
 									<form action="/addUser" method="post">
-									<th>
-										请输入
-									</th>
-									<th>
-										<input type="text" class="form-control"	name="username" placeholder="用户名">
-									</th>
-									<th>
-										<input type="text" class="form-control" name="password" placeholder="密码">
-									</th>
-									<th>
-										<input type="text" class="form-control" >
-									</th>
-									<th>
-										<input type="submit" class="btn btn-primary btn-sm">Success</input>
+										<th class="panel-title">
+											请输入
+										</th>
+										<th>
+											<input type="text" class="form-control"	name="username" placeholder="用户名"/>
+										</th>
+										<th>
+											<input type="text" class="form-control" name="password" placeholder="密码"/>
+										</th>
+										<th>
+											<select>
+												<option></option>
+											</select>
+										</th>
+										<th>
+											<input type="submit" class="btn btn-primary btn-sm"/>
 
-									</th>
+										</th>
 									</form>
 								</tr>
 
+								<!----------------------------------------------------------->
+								<tr th:each="user:${UserList}">
+									<td th:text="${user.getUserid()}" th:name="${user.getUserid()}"></td>
+									<td th:text="${user.getUsername()}" th:name="${user.getUsername()}"></td>
+									<td th:text="${user.getPassword()}" th:name="${user.getPassword()}"></td>
+									<td th:text="${user.getStatus()}" th:name="${user.getStatus()}"></td>
+									<td>
+										<a class="btn btn-primary btn-xs" th:href="@{/delete}"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
+										<a class="btn btn-danger btn-xs" th:href="@{/delete/{userid}(userid=${user.getUserid()})}"><i class="glyphicon glyphicon-remove"></i> Delete</a>
+									</td>
+								</tr>
 
 								</tbody>
 							</table>

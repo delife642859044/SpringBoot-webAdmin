@@ -9,6 +9,10 @@
         insert into users(username,password,statusid) values (#{username},#{password},#{status.id})
     </insert>
 
+    <delete id="deleteUser" parameterType="integer">
+        delete from users where  userid=#{userId}
+    </delete>
+
     <select id="findAll" resultType="User">
         select * from users
     </select>

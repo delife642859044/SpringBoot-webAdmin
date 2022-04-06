@@ -18,19 +18,28 @@ import java.util.List;
 public class UserController {
     @Autowired
     private UserService userService;
-
+    /*添加用户*/
     @PostMapping("/addUser")
     public String addUser(User user){
 
         userService.addUser(user);
+        System.out.println(user.toString());
 
         return "redirect:/Management";
     }
-
+    /*展示数据*/
     @GetMapping("/Management")
     public String findAll(Model model){
         Collection<User> userList = userService.findAll();
+        System.out.println(userList.toString());
         model.addAttribute("UserList",userList);
         return "user/tables";
+    }
+
+    @GetMapping("/delete/{userId}")
+    public String delete(@PathVariable("userId") Integer userId){
+        System.out.println(userId);
+        userService.deleteUser(userId);
+        return "redirect:/Management";
     }
 }

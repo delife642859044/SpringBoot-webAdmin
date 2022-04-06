@@ -1,6 +1,7 @@
 package com.example.server;
 
 import com.example.pojo.User;
+import org.springframework.data.relational.core.sql.In;
 
 import java.util.List;
 
@@ -14,4 +15,7 @@ public interface UserService {
 
     /*获取所有User数据*/
     List<User> findAll();
+
+    /*删除User数据*/
+    void deleteUser(Integer userId);
 }

@@ -18,4 +18,7 @@ public interface UserDao {
 
     /*查找User*/
     public User findUser(User user);
+
+    /*删除User*/
+    public void deleteUser(Integer userid);
 }
