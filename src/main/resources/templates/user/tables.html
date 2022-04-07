@@ -60,8 +60,8 @@
 											<input type="text" class="form-control" name="password" placeholder="密码"/>
 										</th>
 										<th>
-											<select class="form-control" id="select-1">
-												<option th:each="status:${statusList}" th:text="${status.getStatus()}" th:value="${status.getId()}" th:name="status"></option>
+											<select class="form-control" id="select-1" th:name="status.id">
+												<option th:each="status:${statusList}" th:text="${status.getStatus()}" th:value="${status.getId()}"></option>
 											</select>
 										</th>
 										<th>
@@ -76,7 +76,7 @@
 									<td th:text="${user.getUserid()}" th:name="${user.getUserid()}"></td>
 									<td th:text="${user.getUsername()}" th:name="${user.getUsername()}"></td>
 									<td th:text="${user.getPassword()}" th:name="${user.getPassword()}"></td>
-									<td th:text="${user.getStatus()}" th:name="${user.getStatus()}" ></td>
+									<td th:text="${user.getStatus().getStatus()}" th:name="${user.getStatus()}" ></td>
 									<td>
 										<a class="btn btn-primary btn-xs" th:href="@{/delete}"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
 										<a class="btn btn-danger btn-xs" th:href="@{/delete/{userid}(userid=${user.getUserid()})}"><i class="glyphicon glyphicon-remove"></i> Delete</a>

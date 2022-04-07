@@ -5,6 +5,19 @@
 
 <!--namespace = 绑定一个对应的 Dao/Mapper 接口-->
 <mapper namespace="com.example.mapper.UserDao">
+    <!--User对象模型-->
+    <resultMap id="user" type="User">
+        <id property="userid" column="userid"/>
+        <result property="username" column="username"/>
+        <result property="password" column="password"/>
+        <collection property="status" resultMap="status"/>
+    </resultMap>
+    <!--Status对象模型-->
+    <resultMap id="status" type="com.example.pojo.Status">
+        <id property="id" column="id"/>
+        <result property="status" column="status"/>
+    </resultMap>
+
     <insert id="addUser" parameterType="User">
         insert into users(username,password,statusid) values (#{username},#{password},#{status.id})
     </insert>
@@ -13,8 +26,8 @@
         delete from users where  userid=#{userId}
     </delete>
 
-    <select id="findAll" resultType="User">
-        select * from users
+    <select id="findAll" resultMap="user">
+        select * from users,userstatus where id = statusid
     </select>
 
     <select id="findUser" resultType="User" parameterType="User">

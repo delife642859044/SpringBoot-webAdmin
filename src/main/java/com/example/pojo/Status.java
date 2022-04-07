@@ -21,5 +21,11 @@ public class Status {
         this.status = status;
     }
 
-
+    @Override
+    public String toString() {
+        return "Status{" +
+                "id=" + id +
+                ", status='" + status + '\'' +
+                '}';
+    }
 }

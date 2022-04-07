@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.websocket.server.PathParam;
 import java.util.Collection;
 import java.util.List;
 
@@ -26,7 +27,6 @@ public class UserController {
     /*添加用户*/
     @PostMapping("/addUser")
     public String addUser(User user){
-
         userService.addUser(user);
         System.out.println(user.toString());
 
