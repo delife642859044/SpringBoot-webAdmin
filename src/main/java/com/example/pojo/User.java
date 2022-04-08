@@ -1,11 +1,25 @@
 package com.example.pojo;
 
+import java.util.Date;
+
 //用户类
 public class User {
-    private Integer userid;     //用户ID
-    private String username;    //用户
-    private String password;    //用户密码
-    private Status status;   //用户状态
+    private Integer uid;    //用户ID
+    private String username;//用户名
+    private String passwd;  //密码
+    private String phone;   //手机
+    private Date create_time;//创建时间
+    private Date last_time; //最后登录时间
+    private Status status;  //用户类型
+
+
+    public Integer getUid() {
+        return uid;
+    }
+
+    public void setUid(Integer uid) {
+        this.uid = uid;
+    }
 
     public String getUsername() {
         return username;
@@ -15,20 +29,36 @@ public class User {
         this.username = username;
     }
 
-    public Integer getUserid() {
-        return userid;
+    public String getPasswd() {
+        return passwd;
     }
 
-    public void setUserid(Integer userid) {
-        this.userid = userid;
+    public void setPasswd(String passwd) {
+        this.passwd = passwd;
     }
 
-    public String getPassword() {
-        return password;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public Date getCreate_time() {
+        return create_time;
+    }
+
+    public void setCreate_time(Date create_time) {
+        this.create_time = create_time;
+    }
+
+    public Date getLast_time() {
+        return last_time;
+    }
+
+    public void setLast_time(Date last_time) {
+        this.last_time = last_time;
     }
 
     public Status getStatus() {
@@ -42,10 +72,14 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "userid=" + userid +
+                "uid=" + uid +
                 ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", status=" + status.toString() +
+                ", passwd='" + passwd + '\'' +
+                ", phone='" + phone + '\'' +
+                ", create_time=" + create_time +
+                ", last_time=" + last_time +
+                ", status=" + status +
                 '}';
     }
+
 }
